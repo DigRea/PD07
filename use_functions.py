@@ -36,8 +36,23 @@
 
 def bankfunc():
 
+    import os
+
+    BILLFILE = 'billfile.txt'
+    HISTFILE = 'histfile.txt'
+
     count = 0
     history = []
+
+    if os.path.exists(BILLFILE):
+        with open(BILLFILE, 'r') as f:
+            for c in f:
+                count = int(c)
+
+    if os.path.exists(HISTFILE):
+        with open(HISTFILE, 'r') as f:
+            for h in f:
+                history.append(h.replace('\n', ''))
 
     while True:
         print('1 - Пополнение счета')
@@ -66,6 +81,11 @@ def bankfunc():
                 print(i)
             print()
         elif choice == '4':
+            with open(BILLFILE, 'w') as f:
+                f.write(str(count))
+            with open(HISTFILE, 'w') as f:
+                for h in history:
+                    f.write(f'{h}\n')
             break
         else:
             print('Неверный пункт меню')
