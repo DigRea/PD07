@@ -1,5 +1,6 @@
 from victory import victory
 from use_functions import bankfunc
+from listdir import listdir
 import os
 import shutil
 
@@ -58,7 +59,7 @@ while True:
         print([x for x in os.listdir(path) if not os.path.isdir(os.path.join(path, x))])
         print()
     elif choice == '7':
-        pass
+        listdir()
     elif choice == '8':  # Done
         print()
         print(os.uname())
