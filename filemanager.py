@@ -4,12 +4,13 @@ import os
 import shutil
 
 while True:
-    print('1 - Создать папку\t\t\t\t', ' 7 - Просмотр информации об ОС')
-    print('2 - Удалить файл/папку\t\t\t', ' 8 - Создатель программы')
-    print('3 - Копировать файл/папку\t\t', ' 9 - Играть в викторину')
-    print('4 - Просмотр рабочей директории\t', '10 - Мой банковский счёт')
-    print('5 - Просмотреть только папки\t', '11 - Смена рабочей директории')
-    print('6 - Просмотреть только файлы\t', '12 - Выход')
+    print('1 - Создать папку\t\t\t\t', ' 8 - Просмотр информации об ОС')
+    print('2 - Удалить файл/папку\t\t\t', ' 9 - Создатель программы')
+    print('3 - Копировать файл/папку\t\t', ' 10 - Играть в викторину')
+    print('4 - Просмотр рабочей директории\t', '11 - Мой банковский счёт')
+    print('5 - Просмотреть только папки\t', '12 - Смена рабочей директории')
+    print('6 - Просмотреть только файлы\t', '13 - Выход')
+    print('7 - Сохранить содержимое рабочей директории в файл')
     print()
     choice = input('Выберите пункт меню: ')
     if choice == '1':  # Done
@@ -56,27 +57,29 @@ while True:
         path = '.'
         print([x for x in os.listdir(path) if not os.path.isdir(os.path.join(path, x))])
         print()
-    elif choice == '7':  # Done
+    elif choice == '7':
+        pass
+    elif choice == '8':  # Done
         print()
         print(os.uname())
         print()
-    elif choice == '8':  # Done
+    elif choice == '9':  # Done
         print()
         print('Создатель программы: Ярослав С. Васильев,')
         print('студент Университета ИИ (2023)')
         print()
-    elif choice == '9':  # Done
-        victory()
     elif choice == '10':  # Done
+        victory()
+    elif choice == '11':  # Done
         print()
         bankfunc()
-    elif choice == '11':  # Done
+    elif choice == '12':  # Done
         print()
         os.chdir(input('Введите путь к новой рабочей директории: '))
         print('Новая рабочая директория:')
         print(os.getcwd())
         print()
-    elif choice == '12':  # Done
+    elif choice == '13':  # Done
         break
     else:
         print('Неверный пункт меню')
